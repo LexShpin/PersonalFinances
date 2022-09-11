@@ -10,6 +10,8 @@ import UIKit
 
 struct K {
     
+    static let registrationSegue = "RegisterToMain"
+    static let loginSegue = "LoginToMain"
     
     struct BrandColors {
         static let lightPurple = "BrandLightPurple"

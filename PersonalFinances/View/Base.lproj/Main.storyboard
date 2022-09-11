@@ -299,6 +299,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="Button"/>
                                 <connections>
+                                    <action selector="signInPressed:" destination="U93-XB-Yci" eventType="touchUpInside" id="a6r-3O-0vB"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="LoginToMain" id="dvH-iJ-Px4"/>
                                 </connections>
                             </button>
@@ -369,6 +370,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="CSn-Kd-Nyj"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="y3H-PU-GGh" id="rl3-5P-aBA"/>
+                        <outlet property="passwordTextField" destination="tvo-ql-wVG" id="yNN-vZ-hzC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZg-St-Vec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -379,7 +384,7 @@
         <designable name="Cy4-7S-j3K"/>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Exy-fX-wX2"/>
+        <segue reference="dvH-iJ-Px4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Button" width="347" height="104"/>

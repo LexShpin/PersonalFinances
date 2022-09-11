@@ -10,4 +10,15 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    
+    override func viewDidLoad() {
+        //
+    }
+    
+    @IBAction func signInPressed(_ sender: UIButton) {
+        
+    }
+    
 }

@@ -11,12 +11,14 @@
 		524B4CA128CE673100FE705D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B4CA028CE673100FE705D /* LoginViewController.swift */; };
 		524B4CA328CE677A00FE705D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B4CA228CE677A00FE705D /* RegistrationViewController.swift */; };
 		524B4CA528CE678E00FE705D /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B4CA428CE678E00FE705D /* TransactionsViewController.swift */; };
+		524B4CA728CE6B2000FE705D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B4CA628CE6B2000FE705D /* Constants.swift */; };
 		52536D9728CE664C0088B0C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52536D9628CE664C0088B0C0 /* AppDelegate.swift */; };
 		52536D9928CE664C0088B0C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52536D9828CE664C0088B0C0 /* SceneDelegate.swift */; };
 		52536D9B28CE664C0088B0C0 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52536D9A28CE664C0088B0C0 /* BudgetViewController.swift */; };
 		52536D9E28CE664C0088B0C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52536D9C28CE664C0088B0C0 /* Main.storyboard */; };
 		52536DA028CE664E0088B0C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52536D9F28CE664E0088B0C0 /* Assets.xcassets */; };
 		52536DA328CE664E0088B0C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52536DA128CE664E0088B0C0 /* LaunchScreen.storyboard */; };
+		756550A88CEB8E91CC21EB5A /* Pods_PersonalFinances.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D483DB0598127D24E2F75A79 /* Pods_PersonalFinances.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		524B4CA028CE673100FE705D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		524B4CA228CE677A00FE705D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		524B4CA428CE678E00FE705D /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		524B4CA628CE6B2000FE705D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		52536D9328CE664C0088B0C0 /* PersonalFinances.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalFinances.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52536D9628CE664C0088B0C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52536D9828CE664C0088B0C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +35,9 @@
 		52536D9F28CE664E0088B0C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52536DA228CE664E0088B0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52536DA428CE664E0088B0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CDA53750ABB4A266F256093 /* Pods-PersonalFinances.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalFinances.debug.xcconfig"; path = "Target Support Files/Pods-PersonalFinances/Pods-PersonalFinances.debug.xcconfig"; sourceTree = "<group>"; };
+		D483DB0598127D24E2F75A79 /* Pods_PersonalFinances.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PersonalFinances.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F20D3C16297395BD943978AE /* Pods-PersonalFinances.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalFinances.release.xcconfig"; path = "Target Support Files/Pods-PersonalFinances/Pods-PersonalFinances.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				756550A88CEB8E91CC21EB5A /* Pods_PersonalFinances.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +57,8 @@
 			children = (
 				52536D9528CE664C0088B0C0 /* PersonalFinances */,
 				52536D9428CE664C0088B0C0 /* Products */,
+				68D3B20262109C932FA94D83 /* Pods */,
+				E54C113C63A3C05A8EC50320 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +81,7 @@
 				52536D9F28CE664E0088B0C0 /* Assets.xcassets */,
 				52536DA128CE664E0088B0C0 /* LaunchScreen.storyboard */,
 				52536DA428CE664E0088B0C0 /* Info.plist */,
+				524B4CA628CE6B2000FE705D /* Constants.swift */,
 			);
 			path = PersonalFinances;
 			sourceTree = "<group>";
@@ -103,6 +113,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		68D3B20262109C932FA94D83 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CDA53750ABB4A266F256093 /* Pods-PersonalFinances.debug.xcconfig */,
+				F20D3C16297395BD943978AE /* Pods-PersonalFinances.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E54C113C63A3C05A8EC50320 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D483DB0598127D24E2F75A79 /* Pods_PersonalFinances.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,9 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52536DA728CE664E0088B0C0 /* Build configuration list for PBXNativeTarget "PersonalFinances" */;
 			buildPhases = (
+				4D4E36E608CF7058EE9A685D /* [CP] Check Pods Manifest.lock */,
 				52536D8F28CE664C0088B0C0 /* Sources */,
 				52536D9028CE664C0088B0C0 /* Frameworks */,
 				52536D9128CE664C0088B0C0 /* Resources */,
+				289D7FE95E315D7552137D7C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -169,6 +199,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		289D7FE95E315D7552137D7C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PersonalFinances/Pods-PersonalFinances-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PersonalFinances/Pods-PersonalFinances-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PersonalFinances/Pods-PersonalFinances-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D4E36E608CF7058EE9A685D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PersonalFinances-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		52536D8F28CE664C0088B0C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -181,6 +253,7 @@
 				52536D9728CE664C0088B0C0 /* AppDelegate.swift in Sources */,
 				524B4CA128CE673100FE705D /* LoginViewController.swift in Sources */,
 				52536D9928CE664C0088B0C0 /* SceneDelegate.swift in Sources */,
+				524B4CA728CE6B2000FE705D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +395,7 @@
 		};
 		52536DA828CE664E0088B0C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CDA53750ABB4A266F256093 /* Pods-PersonalFinances.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -350,6 +424,7 @@
 		};
 		52536DA928CE664E0088B0C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F20D3C16297395BD943978AE /* Pods-PersonalFinances.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

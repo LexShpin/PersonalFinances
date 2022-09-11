@@ -20,11 +20,15 @@ class RegistrationViewController: UIViewController {
     }
     
     @IBAction func signUpPressed(_ sender: UIButton) {
-        let emailText = emailTextField.text
-        let passwordText = passwordTextField.text
-        if let email = emailText, let password = passwordText {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            print(email)
+            print(password)
             Auth.auth().createUser(withEmail: email, password: password) {authResult , error in
-                
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    self.performSegue(withIdentifier: K.registrationSegue, sender: self)
+                }
             }
         }
     }

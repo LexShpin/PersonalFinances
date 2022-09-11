@@ -166,7 +166,6 @@
                                 <buttonConfiguration key="configuration" style="plain" image="Button"/>
                                 <connections>
                                     <action selector="signUpPressed:" destination="iSO-cC-58G" eventType="touchUpInside" id="iHQ-0t-mo0"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="RegisterToMain" id="BNK-KZ-FbQ"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpC-hS-lsc">
@@ -239,11 +238,12 @@
                     <connections>
                         <outlet property="emailTextField" destination="CLs-M2-s1q" id="nsr-Cd-tnA"/>
                         <outlet property="passwordTextField" destination="foJ-c3-ge0" id="MF2-3a-6Aw"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="RegisterToMain" id="Exy-fX-wX2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7N-RL-9gq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="-293"/>
+            <point key="canvasLocation" x="758" y="-254"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="q9d-co-fd1">
@@ -379,7 +379,7 @@
         <designable name="Cy4-7S-j3K"/>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="BNK-KZ-FbQ"/>
+        <segue reference="Exy-fX-wX2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Button" width="347" height="104"/>

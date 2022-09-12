@@ -15,6 +15,7 @@ struct K {
     static let tableViewCell = "ReusableCell"
     static let cellNibName = "TransactionCell"
     
+    static let recentTransactions = 4
     struct BrandColors {
         static let lightPurple = "BrandLightPurple"
     }

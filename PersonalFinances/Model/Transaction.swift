@@ -9,5 +9,5 @@ import Foundation
 
 struct Transaction {
     let transactionName: String
-    let transactionAmount: Float
+    let transactionAmount: Double
 }

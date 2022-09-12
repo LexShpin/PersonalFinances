@@ -8,7 +8,5 @@
 import Foundation
 
 struct BalanceData {
-    var USD: Float
-    var MXN: Float
-    var RUB: Float
+    
 }

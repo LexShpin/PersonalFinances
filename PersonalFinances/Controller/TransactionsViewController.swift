@@ -11,6 +11,7 @@ import UIKit
 class TransactionsViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var spentLabel: UILabel!
     
     var transactions = Transactions()
     
@@ -18,8 +19,16 @@ class TransactionsViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.tableViewCell)
+        
+        updateAmountSpent(transactions: transactions)
     }
     
+    
+    func updateAmountSpent(transactions: Transactions) {
+        var totalSpent: Double = 0.0
+        transactions.transactionsArr.map {totalSpent += $0.transactionAmount}
+        spentLabel.text = String(format: "%.2f", totalSpent)
+    }
 }
 
 extension TransactionsViewController: UITableViewDataSource {
@@ -29,10 +38,15 @@ extension TransactionsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.tableViewCell, for: indexPath) as! TransactionCell
-            cell.transactionName.text = transactions.transactionsArr[indexPath.row].transactionName
-            cell.transactionAmount.text = String(transactions.transactionsArr[indexPath.row].transactionAmount)
+            cell.transactionName.text = "\(transactions.transactionsArr[indexPath.row].transactionName)"
+            cell.transactionAmount.text = "$\(transactions.transactionsArr[indexPath.row].transactionAmount)"
             
             return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        // delete the item from the tableview
+        // delete the item from the firebase
     }
 }

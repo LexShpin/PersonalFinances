@@ -10,8 +10,10 @@ import UIKit
 
 struct K {
     
-    static let registrationSegue = "RegisterToMain"
-    static let loginSegue = "LoginToMain"
+    static let registrationSegue = "RegisterToBudget"
+    static let loginSegue = "LoginToBudget"
+    static let tableViewCell = "ReusableCell"
+    static let cellNibName = "TransactionCell"
     
     struct BrandColors {
         static let lightPurple = "BrandLightPurple"

@@ -27,6 +27,8 @@
 		52A58DCC28CF729C007D8041 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A58DCA28CF729C007D8041 /* TransactionCell.xib */; };
 		52A58DCF28CF7DEA007D8041 /* RecentTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A58DCD28CF7DE9007D8041 /* RecentTransactionCell.swift */; };
 		52A58DD028CF7DEA007D8041 /* RecentTransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A58DCE28CF7DEA007D8041 /* RecentTransactionCell.xib */; };
+		52A58DD228D0B6FD007D8041 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A58DD128D0B6FD007D8041 /* AddTransactionViewController.swift */; };
+		52A58DD428D0BA4C007D8041 /* EditTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A58DD328D0BA4C007D8041 /* EditTransactionViewController.swift */; };
 		756550A88CEB8E91CC21EB5A /* Pods_PersonalFinances.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D483DB0598127D24E2F75A79 /* Pods_PersonalFinances.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		52A58DCA28CF729C007D8041 /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		52A58DCD28CF7DE9007D8041 /* RecentTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionCell.swift; sourceTree = "<group>"; };
 		52A58DCE28CF7DEA007D8041 /* RecentTransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentTransactionCell.xib; sourceTree = "<group>"; };
+		52A58DD128D0B6FD007D8041 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		52A58DD328D0BA4C007D8041 /* EditTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTransactionViewController.swift; sourceTree = "<group>"; };
 		5CDA53750ABB4A266F256093 /* Pods-PersonalFinances.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalFinances.debug.xcconfig"; path = "Target Support Files/Pods-PersonalFinances/Pods-PersonalFinances.debug.xcconfig"; sourceTree = "<group>"; };
 		D483DB0598127D24E2F75A79 /* Pods_PersonalFinances.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PersonalFinances.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20D3C16297395BD943978AE /* Pods-PersonalFinances.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalFinances.release.xcconfig"; path = "Target Support Files/Pods-PersonalFinances/Pods-PersonalFinances.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				524B4CA028CE673100FE705D /* LoginViewController.swift */,
 				524B4CA228CE677A00FE705D /* RegistrationViewController.swift */,
 				524B4CA428CE678E00FE705D /* TransactionsViewController.swift */,
+				52A58DD128D0B6FD007D8041 /* AddTransactionViewController.swift */,
+				52A58DD328D0BA4C007D8041 /* EditTransactionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -276,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52A58DCB28CF729C007D8041 /* TransactionCell.swift in Sources */,
+				52A58DD428D0BA4C007D8041 /* EditTransactionViewController.swift in Sources */,
 				524B4CA528CE678E00FE705D /* TransactionsViewController.swift in Sources */,
 				52A58DC828CF6E8C007D8041 /* Transactions.swift in Sources */,
 				524B4CA328CE677A00FE705D /* RegistrationViewController.swift in Sources */,
@@ -287,6 +294,7 @@
 				524B4CAD28CF6A1300FE705D /* BalanceData.swift in Sources */,
 				52536D9928CE664C0088B0C0 /* SceneDelegate.swift in Sources */,
 				524B4CA728CE6B2000FE705D /* Constants.swift in Sources */,
+				52A58DD228D0B6FD007D8041 /* AddTransactionViewController.swift in Sources */,
 				524B4CAB28CF63D000FE705D /* Transaction.swift in Sources */,
 				52A58DCF28CF7DEA007D8041 /* RecentTransactionCell.swift in Sources */,
 			);

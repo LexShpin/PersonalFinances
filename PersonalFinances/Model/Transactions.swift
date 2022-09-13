@@ -8,5 +8,5 @@
 import Foundation
 
 struct Transactions {
-    let transactionsArr: [Transaction] = [Transaction(transactionName: "car rental", transactionAmount: 40.42), Transaction(transactionName: "groceries", transactionAmount: 50.05), Transaction(transactionName: "medicine", transactionAmount: 25.05), Transaction(transactionName: "plane tickets", transactionAmount: 125.05)]
+    var transactionsArr: [Transaction] = [Transaction(transactionName: "car rental", transactionAmount: 40.42), Transaction(transactionName: "groceries", transactionAmount: 50.05), Transaction(transactionName: "medicine", transactionAmount: 25.05), Transaction(transactionName: "plane tickets", transactionAmount: 125.05)]
 }

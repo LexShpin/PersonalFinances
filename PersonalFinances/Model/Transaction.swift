@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Transaction {
-    let transactionName: String
-    let transactionAmount: Double
+struct Transaction: Equatable {
+    var transactionName: String
+    var transactionAmount: Double
 }

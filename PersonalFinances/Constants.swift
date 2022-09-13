@@ -14,6 +14,10 @@ struct K {
     static let loginSegue = "LoginToBudget"
     static let tableViewCell = "ReusableCell"
     static let cellNibName = "TransactionCell"
+    static let transactionsToAddTransaction = "transactionsToAddTransaction"
+    static let addTransactionSegue = "addTransactionToTransactions"
+    static let editTransactionSegue = "editTransaction"
+    static let transactionsToEditTransaction = "transactionsToEditTransaction"
     
     static let recentTransactions = 4
     struct BrandColors {

@@ -17,16 +17,16 @@ class TransactionsViewController: UIViewController {
     var selectedTransaction: Transaction?
     var selectedTransactionIndex: Int!
     
-    let addTransactionView = AddTransactionViewController()
+    var addTransaction = AddTransactionViewController()
     
     override func viewDidLoad() {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToaddTransaction))
+
+        addTransaction.delegate = self
         
         tableView.dataSource = self
         tableView.delegate = self
-        
-        addTransactionView.delegate = self
         
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.tableViewCell)
         
@@ -70,8 +70,7 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
         selectedTransactionIndex = indexPath.row
         
         performSegue(withIdentifier: K.transactionsToEditTransaction, sender: self)
-        
-        
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

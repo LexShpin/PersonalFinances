@@ -29,12 +29,12 @@ class AddTransactionViewController: UIViewController {
     @IBAction func addTransactionPressed(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
         delegate?.addTransaction(transaction: Transaction(transactionName: "hello", transactionAmount: 32.43))
-        if let description = descriptionTextField.text, let amount = amountTextField.text {
-            if let amountDouble = Double(amount) {
-                let transaction = Transaction(transactionName: description, transactionAmount: amountDouble)
-                delegate?.addTransaction(transaction: transaction)
-            }
-        }
+//        if let description = descriptionTextField.text, let amount = amountTextField.text {
+//            if let amountDouble = Double(amount) {
+//                let transaction = Transaction(transactionName: description, transactionAmount: amountDouble)
+//                delegate?.addTransaction(transaction: transaction)
+//            }
+//        }
     }
 
 }

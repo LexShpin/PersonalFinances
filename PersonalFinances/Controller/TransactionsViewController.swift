@@ -20,8 +20,6 @@ class TransactionsViewController: UIViewController {
     var addTransaction = AddTransactionViewController()
     
     override func viewDidLoad() {
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToaddTransaction))
 
         addTransaction.delegate = self
         
@@ -40,9 +38,10 @@ class TransactionsViewController: UIViewController {
         spentLabel.text = String(format: "%.2f", totalSpent)
     }
     
-    @objc func goToaddTransaction() {
+    @IBAction func addTransactionPressed(_ sender: UIButton) {
         performSegue(withIdentifier: K.transactionsToAddTransaction, sender: self)
     }
+    
 }
 
 extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -85,7 +84,6 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
             }
         }
     }
-    
 }
 
 extension TransactionsViewController: EditTransactionProtocol {

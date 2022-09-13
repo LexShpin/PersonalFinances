@@ -214,7 +214,20 @@
                         <viewLayoutGuide key="safeArea" id="0Gm-GE-laM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="UcN-5D-DzE"/>
+                    <navigationItem key="navigationItem" id="UcN-5D-DzE">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="TuN-dB-jHo">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Yug-cj-faI">
+                                <rect key="frame" x="302" y="5" width="92" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addTransactionPressed:" destination="qm3-OZ-9R2" eventType="touchUpInside" id="F2e-Kn-Vi7"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="spentLabel" destination="PVB-Ol-PUV" id="cug-CQ-BNs"/>
                         <outlet property="tableView" destination="9Zh-P8-L8T" id="f2S-pq-9kO"/>
@@ -719,6 +732,7 @@
         <image name="budget_bg" width="374" height="261"/>
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <image name="logo-white" width="60" height="59"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="BrandLightPurple">
             <color red="0.65799999237060547" green="0.41100001335144043" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

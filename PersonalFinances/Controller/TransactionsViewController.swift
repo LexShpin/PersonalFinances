@@ -17,11 +17,7 @@ class TransactionsViewController: UIViewController {
     var selectedTransaction: Transaction?
     var selectedTransactionIndex: Int!
     
-    var addTransaction = AddTransactionViewController()
-    
     override func viewDidLoad() {
-
-        addTransaction.delegate = self
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -82,6 +78,10 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
                     vc.delegate = self
                 }
             }
+        } else if segue.identifier == K.transactionsToAddTransaction {
+            if let vc = segue.destination as? AddTransactionViewController {
+                vc.delegate = self
+            }
         }
     }
 }
@@ -96,6 +96,8 @@ extension TransactionsViewController: EditTransactionProtocol {
 
 extension TransactionsViewController: AddTransactionProtocol {
     func addTransaction(transaction: Transaction) {
-        print("it worked")
+        transactions.transactionsArr.append(transaction)
+        updateAmountSpent(transactions: transactions)
+        tableView.reloadData()
     }
 }

@@ -14,6 +14,9 @@ protocol AddTransactionProtocol: AnyObject {
 class AddTransactionViewController: UIViewController {
     
     weak var delegate: AddTransactionProtocol?
+    
+    var descriptionValue: String?
+    var amountValue: String?
 
     @IBOutlet var descriptionTextField: UITextField!
     @IBOutlet var amountTextField: UITextField!
@@ -24,17 +27,19 @@ class AddTransactionViewController: UIViewController {
 
         descriptionTextField.delegate = self
         amountTextField.delegate = self
+        
+        descriptionTextField.text = descriptionValue
+        amountTextField.text = amountValue
     }
     
     @IBAction func addTransactionPressed(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
-        delegate?.addTransaction(transaction: Transaction(transactionName: "hello", transactionAmount: 32.43))
-//        if let description = descriptionTextField.text, let amount = amountTextField.text {
-//            if let amountDouble = Double(amount) {
-//                let transaction = Transaction(transactionName: description, transactionAmount: amountDouble)
-//                delegate?.addTransaction(transaction: transaction)
-//            }
-//        }
+        if let description = descriptionTextField.text, let amount = amountTextField.text {
+            if let amountDouble = Double(amount) {
+                let transaction = Transaction(transactionName: description, transactionAmount: amountDouble)
+                delegate?.addTransaction(transaction: transaction)
+            }
+        }
     }
 
 }

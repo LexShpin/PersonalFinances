@@ -126,7 +126,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3450" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwb-Yz-7i3">
-                                <rect key="frame" x="184" y="152" width="63" height="29"/>
+                                <rect key="frame" x="184" y="152" width="169" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -151,11 +151,41 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUJ-gS-30S">
+                                <rect key="frame" x="114" y="208" width="185" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="white-btn"/>
+                                <connections>
+                                    <action selector="setBalancePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lIX-Xy-4fd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Update balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8W-og-KTO">
+                                <rect key="frame" x="148" y="220" width="120" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="atg-CX-9Pw"/>
+                    <navigationItem key="navigationItem" id="atg-CX-9Pw">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="fBW-mO-pBg">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ZNt-el-xAb">
+                                <rect key="frame" x="302" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sign out"/>
+                                <connections>
+                                    <action selector="signOutPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4q3-3U-AAS"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="yEG-ru-y9B" id="uNm-Gu-eqf"/>
                         <outlet property="totalBalanceLabel" destination="qwb-Yz-7i3" id="aje-yE-wm3"/>
@@ -204,7 +234,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3450" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVB-Ol-PUV">
-                                <rect key="frame" x="176" y="166" width="104" height="29"/>
+                                <rect key="frame" x="176" y="166" width="137" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -237,7 +267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9K8-bs-pEg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3775" y="92"/>
+            <point key="canvasLocation" x="3773.913043478261" y="91.741071428571431"/>
         </scene>
         <!--Add Transaction View Controller-->
         <scene sceneID="WOD-Fj-ZR0">
@@ -339,9 +369,11 @@
                     <connections>
                         <outlet property="amountTextField" destination="Ot2-uU-2ps" id="vKp-ul-4bM"/>
                         <outlet property="descriptionTextField" destination="k9q-oJ-9u2" id="PPP-MJ-qdw"/>
+                        <segue destination="5LW-mN-kIV" kind="unwind" identifier="unwindToTransactions" unwindAction="unwind:" id="rNm-Ui-jG6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLk-Fu-LrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="5LW-mN-kIV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4564" y="-210"/>
         </scene>
@@ -733,6 +765,10 @@
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <image name="logo-white" width="60" height="59"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="white-btn" width="347" height="104"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BrandLightPurple">
             <color red="0.65799999237060547" green="0.41100001335144043" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

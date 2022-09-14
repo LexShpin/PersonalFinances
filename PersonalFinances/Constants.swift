@@ -20,7 +20,16 @@ struct K {
     static let transactionsToEditTransaction = "transactionsToEditTransaction"
     
     static let recentTransactions = 4
+    
     struct BrandColors {
         static let lightPurple = "BrandLightPurple"
+    }
+    
+    struct FireStore {
+        static let transactionsCollection = "transactions"
+        static let transactionDescription = "description"
+        static let transactionAmount = "amount"
+        static let dateField = "date"
+        static let id = "id"
     }
 }

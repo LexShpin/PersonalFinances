@@ -7,15 +7,26 @@
 
 import Foundation
 import UIKit
+import FirebaseFirestore
 
 class TransactionsViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var spentLabel: UILabel!
     
-    var transactions = Transactions()
+    let db = Firestore.firestore()
+    
+    var transactions: [Transaction] = []
+    
     var selectedTransaction: Transaction?
     var selectedTransactionIndex: Int!
+    
+    let budgetViewController = BudgetViewController()
+    let editTransactionViewController = EditTransactionViewController()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadTransactions()
+    }
     
     override func viewDidLoad() {
         
@@ -23,19 +34,58 @@ class TransactionsViewController: UIViewController {
         tableView.delegate = self
         
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.tableViewCell)
-        
-        updateAmountSpent(transactions: transactions)
     }
     
     
-    func updateAmountSpent(transactions: Transactions) {
+    func updateAmountSpent(transactions: [Transaction]) {
         var totalSpent: Double = 0.0
-        transactions.transactionsArr.map {totalSpent += $0.transactionAmount}
-        spentLabel.text = String(format: "%.2f", totalSpent)
+        
+        db.collection(K.FireStore.transactionsCollection).getDocuments(completion: {(querySnapshot, err) in
+            if let err = err {
+                print(err.localizedDescription)
+            } else {
+                for doc in querySnapshot!.documents {
+                    let data = doc.data()
+                    if let amount = data[K.FireStore.transactionAmount] as? Double {
+                        totalSpent += amount
+                    }
+                }
+                self.spentLabel.text = String(format: "%.2f", totalSpent)
+            }
+        })
+        
     }
     
     @IBAction func addTransactionPressed(_ sender: UIButton) {
         performSegue(withIdentifier: K.transactionsToAddTransaction, sender: self)
+    }
+    
+    func loadTransactions() {
+        
+        self.transactions = []
+        
+        db.collection(K.FireStore.transactionsCollection)
+            .order(by: K.FireStore.dateField)
+            .getDocuments(completion: { (querySnapshot, err) in
+            if let err = err {
+                print("Error loading documents")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    if let description = data[K.FireStore.transactionDescription] as? String, let amount = data[K.FireStore.transactionAmount] as? Double, let id = data[K.FireStore.id] as? String {
+                        let newTransaction = Transaction(id: id, transactionName: description, transactionAmount: amount)
+                        self.transactions.append(newTransaction)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    let indexPath = IndexPath(row: self.transactions.count - 1, section: 0)
+                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                }
+            }
+        })
+        updateAmountSpent(transactions: transactions)
+        tableView.reloadData()
     }
     
 }
@@ -43,13 +93,13 @@ class TransactionsViewController: UIViewController {
 extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transactions.transactionsArr.count
+        return transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.tableViewCell, for: indexPath) as! TransactionCell
-            cell.transactionName.text = "\(transactions.transactionsArr[indexPath.row].transactionName)"
-            cell.transactionAmount.text = "$\(transactions.transactionsArr[indexPath.row].transactionAmount)"
+            cell.transactionName.text = "\(transactions[indexPath.row].transactionName)"
+            cell.transactionAmount.text = "$\(transactions[indexPath.row].transactionAmount)"
             
             return cell
         
@@ -61,7 +111,7 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedTransaction = transactions.transactionsArr[indexPath.row]
+        selectedTransaction = transactions[indexPath.row]
         selectedTransactionIndex = indexPath.row
         
         performSegue(withIdentifier: K.transactionsToEditTransaction, sender: self)
@@ -75,29 +125,13 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
                     vc.descriptionValue = selectedTransaction?.transactionName
                     vc.amountValue = String(transactionAmountString)
                     vc.selectedTransactionIndex = selectedTransactionIndex
-                    vc.delegate = self
+                    vc.selectedTransactionId = selectedTransaction?.id
                 }
-            }
-        } else if segue.identifier == K.transactionsToAddTransaction {
-            if let vc = segue.destination as? AddTransactionViewController {
-                vc.delegate = self
             }
         }
     }
-}
-
-extension TransactionsViewController: EditTransactionProtocol {
-    func updateTransaction(transaction: Transaction) {
-        transactions.transactionsArr[selectedTransactionIndex] = transaction
-        updateAmountSpent(transactions: transactions)
-        tableView.reloadData()
-    }
-}
-
-extension TransactionsViewController: AddTransactionProtocol {
-    func addTransaction(transaction: Transaction) {
-        transactions.transactionsArr.append(transaction)
-        updateAmountSpent(transactions: transactions)
-        tableView.reloadData()
+    
+    @IBAction func unwind(_ seg: UIStoryboardSegue) {
+        
     }
 }

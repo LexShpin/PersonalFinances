@@ -37,13 +37,6 @@ class EditTransactionViewController: UIViewController {
     
     @IBAction func submitPressed(_ sender: UIButton) {
         
-//        if let description = descriptionTextField.text, let amount = amountTextField.text {
-//            if let amountDouble = Double(amount) {
-//               let transaction = Transaction(transactionName: description, transactionAmount: amountDouble)
-//                delegate?.updateTransaction(transaction: transaction)
-//            }
-//        }
-        
         if let amountDouble = Double(amountTextField.text!), let description = descriptionTextField.text {
             db.collection(K.FireStore.transactionsCollection).whereField(K.FireStore.id, isEqualTo: selectedTransactionId).getDocuments(completion: {(querySnapshot, err) in
                 for document in querySnapshot!.documents {
@@ -57,35 +50,6 @@ class EditTransactionViewController: UIViewController {
                 }
             })
         }
-        
-        
-//        db.collection(K.FireStore.transactionsCollection).whereField(<#T##field: String##String#>, isEqualTo: <#T##Any#>)
-//        db.collection(K.FireStore.transactionsCollection).getDocuments(completion: {(querySnapshot, err) in
-//            if let err = err {
-//                print(err.localizedDescription)
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    let data = document.data()
-//                    if let description = data[K.FireStore.transactionDescription] as? String, let amount = data[K.FireStore.transactionAmount] as? Double {
-//                        let amountDouble = Double(self.amountTextField.text!)
-//                        if description == self.descriptionTextField.text && amount == amountDouble {
-//                            let currentDocument = self.db.collection(K.FireStore.transactionsCollection).document(document.documentID)
-//
-//                            currentDocument.updateData([
-//                                K.FireStore.transactionDescription: description,
-//                                K.FireStore.transactionAmount: amountDouble
-//                            ]) {err in
-//                                if let err = err {
-//                                    print(err.localizedDescription)
-//                                } else {
-//                                    print("Document updated")
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        })
     }
 }
 

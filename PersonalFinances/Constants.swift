@@ -31,5 +31,9 @@ struct K {
         static let transactionAmount = "amount"
         static let dateField = "date"
         static let id = "id"
+        static let user = "user"
+        
+        static let balanceCollection = "balances"
+        static let balanceField = "balance"
     }
 }

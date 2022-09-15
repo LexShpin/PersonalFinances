@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class TransactionsViewController: UIViewController {
     
@@ -46,8 +47,10 @@ class TransactionsViewController: UIViewController {
             } else {
                 for doc in querySnapshot!.documents {
                     let data = doc.data()
-                    if let amount = data[K.FireStore.transactionAmount] as? Double {
-                        totalSpent += amount
+                    if data[K.FireStore.user] as! String == Auth.auth().currentUser?.email {
+                        if let amount = data[K.FireStore.transactionAmount] as? Double {
+                            totalSpent += amount
+                        }
                     }
                 }
                 self.spentLabel.text = String(format: "%.2f", totalSpent)
@@ -72,15 +75,15 @@ class TransactionsViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                     let data = document.data()
-                    if let description = data[K.FireStore.transactionDescription] as? String, let amount = data[K.FireStore.transactionAmount] as? Double, let id = data[K.FireStore.id] as? String {
-                        let newTransaction = Transaction(id: id, transactionName: description, transactionAmount: amount)
-                        self.transactions.append(newTransaction)
+                    if data[K.FireStore.user] as! String == Auth.auth().currentUser?.email {
+                        if let description = data[K.FireStore.transactionDescription] as? String, let amount = data[K.FireStore.transactionAmount] as? Double, let id = data[K.FireStore.id] as? String {
+                            let newTransaction = Transaction(id: id, transactionName: description, transactionAmount: amount)
+                            self.transactions.append(newTransaction)
+                        }
                     }
-                }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    let indexPath = IndexPath(row: self.transactions.count - 1, section: 0)
-                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
             }
         })

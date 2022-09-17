@@ -109,8 +109,18 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        // delete the item from the tableview
-        // delete the item from the firebase
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            let currentTransaction = transactions[indexPath.row].id
+            db.collection(K.FireStore.transactionsCollection).document(currentTransaction).delete() { err in
+                if let err = err {
+                    print(err.localizedDescription)
+                }
+            }
+            
+            transactions.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            updateAmountSpent(transactions: transactions)
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

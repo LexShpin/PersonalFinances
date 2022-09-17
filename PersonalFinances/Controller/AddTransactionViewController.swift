@@ -33,19 +33,17 @@ class AddTransactionViewController: UIViewController {
     }
     
     @IBAction func addTransactionPressed(_ sender: UIButton) {
+        let id = UUID().uuidString
         
         if let description = descriptionTextField.text, let amount = amountTextField.text, let currentUser = Auth.auth().currentUser?.email {
             if let amountDouble = Double(amount) {
-                db.collection(K.FireStore.transactionsCollection).addDocument(data: [
+                db.collection(K.FireStore.transactionsCollection).document(id).setData([
                     K.FireStore.user: currentUser,
-                    K.FireStore.id: UUID().uuidString,
+                    K.FireStore.id: id,
                     K.FireStore.transactionDescription: description,
                     K.FireStore.transactionAmount: amountDouble,
                     K.FireStore.dateField: Date().timeIntervalSince1970
                 ])
-//                db.collection(K.FireStore.balanceCollection).document(currentUser).setData([
-//                    K.FireStore.balanceField: "some balance"
-//                ])
                 { _ in
                     self.navigationController?.popViewController(animated: true)
                 }

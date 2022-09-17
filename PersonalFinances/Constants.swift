@@ -10,8 +10,8 @@ import UIKit
 
 struct K {
     
-    static let registrationSegue = "RegisterToBudget"
-    static let loginSegue = "LoginToBudget"
+    static let registrationSegue = "RegisterToTransactions"
+    static let loginSegue = "LoginToTransactions"
     static let tableViewCell = "ReusableCell"
     static let cellNibName = "TransactionCell"
     static let transactionsToAddTransaction = "transactionsToAddTransaction"

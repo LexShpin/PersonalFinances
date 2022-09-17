@@ -22,9 +22,6 @@ class TransactionsViewController: UIViewController {
     var selectedTransaction: Transaction?
     var selectedTransactionIndex: Int!
     
-    let budgetViewController = BudgetViewController()
-    let editTransactionViewController = EditTransactionViewController()
-    
     override func viewWillAppear(_ animated: Bool) {
         loadTransactions()
     }
@@ -63,6 +60,16 @@ class TransactionsViewController: UIViewController {
         performSegue(withIdentifier: K.transactionsToAddTransaction, sender: self)
     }
     
+    
+    @IBAction func signOutPressed(_ sender: UIButton) {
+        do {
+            try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch let signOutError as NSError {
+            print(signOutError.localizedDescription)
+        }
+    }
+    
     func loadTransactions() {
         
         self.transactions = []
@@ -70,23 +77,23 @@ class TransactionsViewController: UIViewController {
         db.collection(K.FireStore.transactionsCollection)
             .order(by: K.FireStore.dateField)
             .getDocuments(completion: { (querySnapshot, err) in
-            if let err = err {
-                print("Error loading documents")
-            } else {
-                for document in querySnapshot!.documents {
-                    let data = document.data()
-                    if data[K.FireStore.user] as! String == Auth.auth().currentUser?.email {
-                        if let description = data[K.FireStore.transactionDescription] as? String, let amount = data[K.FireStore.transactionAmount] as? Double, let id = data[K.FireStore.id] as? String {
-                            let newTransaction = Transaction(id: id, transactionName: description, transactionAmount: amount)
-                            self.transactions.append(newTransaction)
+                if let err = err {
+                    print("Error loading documents")
+                } else {
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        if data[K.FireStore.user] as! String == Auth.auth().currentUser?.email {
+                            if let description = data[K.FireStore.transactionDescription] as? String, let amount = data[K.FireStore.transactionAmount] as? Double, let id = data[K.FireStore.id] as? String {
+                                let newTransaction = Transaction(id: id, transactionName: description, transactionAmount: amount)
+                                self.transactions.append(newTransaction)
+                            }
+                        }
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
                         }
                     }
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
                 }
-            }
-        })
+            })
         updateAmountSpent(transactions: transactions)
         tableView.reloadData()
     }
@@ -101,10 +108,10 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.tableViewCell, for: indexPath) as! TransactionCell
-            cell.transactionName.text = "\(transactions[indexPath.row].transactionName)"
-            cell.transactionAmount.text = "$\(transactions[indexPath.row].transactionAmount)"
-            
-            return cell
+        cell.transactionName.text = "\(transactions[indexPath.row].transactionName)"
+        cell.transactionAmount.text = "$\(transactions[indexPath.row].transactionAmount)"
+        
+        return cell
         
     }
     
@@ -128,7 +135,7 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
         selectedTransactionIndex = indexPath.row
         
         performSegue(withIdentifier: K.transactionsToEditTransaction, sender: self)
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

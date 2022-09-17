@@ -14,11 +14,8 @@
 		524B4CA728CE6B2000FE705D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B4CA628CE6B2000FE705D /* Constants.swift */; };
 		524B4CA928CE781C00FE705D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 524B4CA828CE781C00FE705D /* GoogleService-Info.plist */; };
 		524B4CAB28CF63D000FE705D /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B4CAA28CF63D000FE705D /* Transaction.swift */; };
-		524B4CAD28CF6A1300FE705D /* BalanceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B4CAC28CF6A1300FE705D /* BalanceData.swift */; };
-		524B4CB128CF6B0200FE705D /* BalanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B4CB028CF6B0200FE705D /* BalanceModel.swift */; };
 		52536D9728CE664C0088B0C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52536D9628CE664C0088B0C0 /* AppDelegate.swift */; };
 		52536D9928CE664C0088B0C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52536D9828CE664C0088B0C0 /* SceneDelegate.swift */; };
-		52536D9B28CE664C0088B0C0 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52536D9A28CE664C0088B0C0 /* BudgetViewController.swift */; };
 		52536D9E28CE664C0088B0C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52536D9C28CE664C0088B0C0 /* Main.storyboard */; };
 		52536DA028CE664E0088B0C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52536D9F28CE664E0088B0C0 /* Assets.xcassets */; };
 		52536DA328CE664E0088B0C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52536DA128CE664E0088B0C0 /* LaunchScreen.storyboard */; };
@@ -40,12 +37,9 @@
 		524B4CA628CE6B2000FE705D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		524B4CA828CE781C00FE705D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		524B4CAA28CF63D000FE705D /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		524B4CAC28CF6A1300FE705D /* BalanceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceData.swift; sourceTree = "<group>"; };
-		524B4CB028CF6B0200FE705D /* BalanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceModel.swift; sourceTree = "<group>"; };
 		52536D9328CE664C0088B0C0 /* PersonalFinances.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalFinances.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52536D9628CE664C0088B0C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52536D9828CE664C0088B0C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		52536D9A28CE664C0088B0C0 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		52536D9D28CE664C0088B0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52536D9F28CE664E0088B0C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52536DA228CE664E0088B0C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -124,7 +118,6 @@
 		52536DAB28CE665E0088B0C0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				52536D9A28CE664C0088B0C0 /* BudgetViewController.swift */,
 				524B4C9E28CE670600FE705D /* WelcomeViewController.swift */,
 				524B4CA028CE673100FE705D /* LoginViewController.swift */,
 				524B4CA228CE677A00FE705D /* RegistrationViewController.swift */,
@@ -139,8 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				524B4CAA28CF63D000FE705D /* Transaction.swift */,
-				524B4CAC28CF6A1300FE705D /* BalanceData.swift */,
-				524B4CB028CF6B0200FE705D /* BalanceModel.swift */,
 				52A58DC728CF6E8C007D8041 /* Transactions.swift */,
 			);
 			path = Model;
@@ -286,12 +277,9 @@
 				524B4CA528CE678E00FE705D /* TransactionsViewController.swift in Sources */,
 				52A58DC828CF6E8C007D8041 /* Transactions.swift in Sources */,
 				524B4CA328CE677A00FE705D /* RegistrationViewController.swift in Sources */,
-				52536D9B28CE664C0088B0C0 /* BudgetViewController.swift in Sources */,
 				524B4C9F28CE670600FE705D /* WelcomeViewController.swift in Sources */,
-				524B4CB128CF6B0200FE705D /* BalanceModel.swift in Sources */,
 				52536D9728CE664C0088B0C0 /* AppDelegate.swift in Sources */,
 				524B4CA128CE673100FE705D /* LoginViewController.swift in Sources */,
-				524B4CAD28CF6A1300FE705D /* BalanceData.swift in Sources */,
 				52536D9928CE664C0088B0C0 /* SceneDelegate.swift in Sources */,
 				524B4CA728CE6B2000FE705D /* Constants.swift in Sources */,
 				52A58DD228D0B6FD007D8041 /* AddTransactionViewController.swift in Sources */,

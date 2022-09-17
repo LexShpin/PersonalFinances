@@ -75,7 +75,21 @@ extension BudgetViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.tableViewCell, for: indexPath) as! TransactionCell
         
-        
+        if let currentUser = Auth.auth().currentUser?.email {
+            db.collection(K.FireStore.transactionsCollection).order(by: K.FireStore.dateField, descending: true).getDocuments { querySnapshot, err in
+                if let err = err {
+                    print(err.localizedDescription)
+                } else {
+                    let docs = querySnapshot!.documents
+                    let data = docs[indexPath.row].data()
+                    
+                    let amountDouble = data[K.FireStore.transactionAmount] as! Double
+                    
+                    cell.transactionName.text = data[K.FireStore.transactionDescription] as! String
+                    cell.transactionAmount.text = "\(amountDouble)"
+            }
+        }
+    }
         
         return cell
     }

@@ -21,6 +21,7 @@ class BudgetViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         updateBalance()
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {

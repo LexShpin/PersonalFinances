@@ -16,6 +16,12 @@ class BudgetViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     let db = Firestore.firestore()
+    let defaults = UserDefaults.standard
+    var transactions = Transactions().transactions
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateBalance()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +29,7 @@ class BudgetViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.tableViewCell)
         
-        getBalance()
+        updateBalance()
     }
 
     @IBAction func setBalancePressed(_ sender: UIButton) {
@@ -32,7 +38,10 @@ class BudgetViewController: UIViewController {
         
         let submitAction = UIAlertAction(title: "Submit", style: .default, handler: {[weak self, weak ac] action in
             if let answer = ac?.textFields?[0].text {
-                self!.updateBalance(balance: answer)
+                self?.defaults.set(answer, forKey: "Balance")
+                if let balanceString = self?.defaults.string(forKey: "Balance") {
+                    self?.totalBalanceLabel.text = balanceString
+                }
             }
         })
         
@@ -49,32 +58,9 @@ class BudgetViewController: UIViewController {
         }
     }
     
-    func updateBalance(balance: String?) {
-        if let currentUser = Auth.auth().currentUser?.email, let currentBalance = balance {
-            db.collection(K.FireStore.balanceCollection).document(currentUser).setData([
-                K.FireStore.user: currentUser,
-                K.FireStore.balanceField: currentBalance
-            ]) { err in
-                if let err = err {
-                    print("Error writing document: \(err)")
-                } else {
-                    self.getBalance()
-                }
-            }
-        }
-    }
-    
-    func getBalance() {
-        if let currentUser = Auth.auth().currentUser?.email {
-            db.collection(K.FireStore.balanceCollection).document(currentUser).getDocument(completion: { querySnapshot, err in
-                if let err = err {
-                    print(err.localizedDescription)
-                } else {
-                    let data = querySnapshot?.data()
-                    print(data)
-                    self.totalBalanceLabel.text = data?[K.FireStore.balanceField] as? String
-                }
-            })
+    func updateBalance() {
+        if let balanceString = defaults.string(forKey: "Balance") {
+            totalBalanceLabel.text = balanceString
         }
     }
     
@@ -88,6 +74,8 @@ extension BudgetViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.tableViewCell, for: indexPath) as! TransactionCell
+        
+        
         
         return cell
     }

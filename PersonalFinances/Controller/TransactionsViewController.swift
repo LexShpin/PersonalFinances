@@ -17,7 +17,10 @@ class TransactionsViewController: UIViewController {
     
     let db = Firestore.firestore()
     
-    var transactions: [Transaction] = []
+//    var transactions: [Transaction] = []
+    var transactions = Transactions().transactions
+    
+    let defaults = UserDefaults.standard
     
     var selectedTransaction: Transaction?
     var selectedTransactionIndex: Int!

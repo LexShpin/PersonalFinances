@@ -9,10 +9,10 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
-
 class AddTransactionViewController: UIViewController {
     
     let db = Firestore.firestore()
+    let defaults = UserDefaults.standard
     
     var descriptionValue: String?
     var amountValue: String?
@@ -44,9 +44,13 @@ class AddTransactionViewController: UIViewController {
                     K.FireStore.transactionAmount: amountDouble,
                     K.FireStore.dateField: Date().timeIntervalSince1970
                 ])
-                { _ in
-                    self.navigationController?.popViewController(animated: true)
+                if let balanceString = defaults.string(forKey: "Balance") {
+                    var balanceDouble = Double(balanceString)!
+                    balanceDouble -= amountDouble
+                    defaults.set(balanceDouble, forKey: "Balance")
                 }
+                self.navigationController?.popViewController(animated: true)
+                
             }
         }
     }
